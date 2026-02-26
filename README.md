@@ -96,3 +96,4 @@ Voici la résultats et les données obtenues de l'IA générative :
 Si tu veux, je peux aussi te donner une **liste d’événements/états** (ex. “réservation expirée”, “vol détourné”, “bagage manquant”) pour aider l’étudiant à prévoir les statuts dans le MCD.
 
 
+<img width="1314" height="513" alt="image" src="https://github.com/user-attachments/assets/cd93ab7f-f77b-412b-af34-7334aebdfddf" />
