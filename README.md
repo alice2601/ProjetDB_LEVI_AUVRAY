@@ -97,3 +97,22 @@ Si tu veux, je peux aussi te donner une **liste d’événements/états** (ex. �
 
 
 <img width="1314" height="513" alt="image" src="https://github.com/user-attachments/assets/cd93ab7f-f77b-412b-af34-7334aebdfddf" />
+
+
+PROMPT pour insertion des données : 
+Donne les requêtes d’insertion permettant de remplir la base de données dont le modèle relationnel est le suivant : 
+
+Passager = (id_passager INT, civilte VARCHAR(50), nom VARCHAR(50), date_naissance INT, nationalite VARCHAR(50), email VARCHAR(50), telephone INT);
+Billet = (numero_billet INT, date_emission_billet DATE, type_tarif INT, conditions_modification VARCHAR(50), conditions_remboursement LOGICAL, #id_passager);
+Avion = (immatriculation INT, modele_avion VARCHAR(50), capacité_totale_sieges_avion INT);
+Personnel = (matricul_personnel INT, qualification_principal VARCHAR(50));
+Aeroport = (code_iata INT, ville VARCHAR(50), nom VARCHAR(50));
+Réservation = (pnr INT, canal_reservation VARCHAR(50), date_heure_creation_reservation DATETIME, statut_reservation LOGICAL, #numero_billet);
+Vol = (numero_vol INT, date_vol DATE, heure_depart_prevue TIME, heure_arrivee_prevue TIME, heure_depart_reelle TIME, heure_arrivee_reelle TIME, statu_vol VARCHAR(50), #code_iata, #immatriculation, #code_iata_1);
+Bagage = (id_bagage INT, type_bagage VARCHAR(50), poids_bagage INT, statu_bagage VARCHAR(50), #(numero_vol, date_vol), #id_passager);
+concerne = (#id_passager, #pnr);
+affectation = (#(numero_vol, date_vol), #matricul_personnel, rolesurvol VARCHAR(50));
+comprend = (#pnr, #(numero_vol, date_vol));
+checkin = (#numero_billet, classe_cabine VARCHAR(50), statut_checkin VARCHAR(50), numero_carte_embarquement INT, numero_siege INT, #id_passager, #(numero_vol, date_vol));
+
+ Les clés primaires correspondent aux id, sauf si autre chose est précisé (quand c'est un attribut composé) les clés étrangères sont identifiées par les #, et ont le même nom que les clés primaires auxquelles elles font référence. Met environ 50 lignes par tables si possible mais si de façon pertinente tu dois en mettre moins mets en moins ou plus. Les clés étrangères doivent faire référence aux clés primaires existantes : donne les lignes en commençant par remplir les tables dans lesquelles il n'y a pas de clés étrangères, puis les tables dans lesquelles les clés étrangères font références à des clés primaires des tables déjà remplies. Fournis l'ensemble sous la forme d’un script SQL prêt à être exécuté.
