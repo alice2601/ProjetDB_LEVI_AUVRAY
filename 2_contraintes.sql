@@ -1,5 +1,9 @@
+
 ALTER TABLE Passager
 ADD CONSTRAINT passager_email_unique UNIQUE (email);
+
+ALTER TABLE Passager
+ADD CONSTRAINT passager_telephone_unique UNIQUE (telephone);
 
 ALTER TABLE Passager
 ADD CONSTRAINT passager_nom_not_empty
@@ -9,8 +13,6 @@ ALTER TABLE Passager
 ADD CONSTRAINT passager_naissance_check
 CHECK (date_naissance > 1900);
 
-ALTER TABLE Passager
-ADD CONSTRAINT passager_tel_unique UNIQUE (telephone);
 
 ALTER TABLE Passager
 ADD CONSTRAINT passager_civilite_check
@@ -18,7 +20,7 @@ CHECK (civilte IN ('M','Mme','Mlle'));
 
 ALTER TABLE Avion
 ADD CONSTRAINT avion_capacité_check
-CHECK (capacité_total_siege_avion >0);
+CHECK (capacité_totale_sieges_avion >0);
 
 ALTER TABLE Avion
 ADD CONSTRAINT avion_capacite_max
